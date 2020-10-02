@@ -1,0 +1,6 @@
+services:
+  d8_migrations.subscriber.pre_row_save:
+    class: Drupal\d8_migrations\EventSubscriber\PreRowSaveSubscriber
+    arguments: []
+    tags:
+      - {name: event_subscriber}

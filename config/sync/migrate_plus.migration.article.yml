@@ -1,0 +1,40 @@
+uuid: 37c96794-caba-4b21-b95c-d45eb21adc83
+langcode: en
+status: true
+dependencies: {  }
+id: article
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Layout content'
+migration_group: content
+label: 'Article Content Migration'
+source:
+  plugin: d7_node
+  node_type: article
+  constants:
+    map:
+      block_quote: paragraphs_blockquote
+      rich_text: paragraphs_rich_text
+process:
+  default_temp:
+    plugin: default_layout
+    bundle: article
+  paragraphs_temp:
+    plugin: paragraphs_layout
+    source_field: field_paragraphs
+  layout_builder__layout:
+    plugin: get
+    source:
+      - '@default_temp'
+      - '@paragraphs_temp'
+destination:
+  bundle: article
+migration_dependencies:
+  required:
+    - paragraphs_blockquote
+    - paragraphs_rich_text
+  optional: {  }

@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies: {  }
+id: paragraphs_to_block
+label: 'Paragraphs to Blocks'
+description: 'A container for migrating Paragraphs to Block entities'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    plugin: d7_paragraphs_item
+    key: migrate
+    constants:
+      title_prefix: 'Paragraph - '
+  process:
+    info:
+      plugin: concat
+      source:
+        - constants/title_prefix
+        - item_id
+    status:
+      plugin: default_value
+      default_value: '1'
+    revision_created: created
+    changed: changed
+    reusable:
+      plugin: default_value
+      default_value: 0
+  destination:
+    plugin: 'entity:block_content'

@@ -1,0 +1,31 @@
+id: paragraphs_blockquote
+label: Drupal 7 Blockquote Paragraphs
+migration_group: paragraphs_to_block
+
+dependencies: { }
+
+source:
+  plugin: d7_paragraphs_item
+  bundle: block_quote
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: 'blockquote'
+  field_author: field_author
+  field_quote:
+    plugin: sub_process
+    source: field_quote
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: 'full_html'
+
+destination:
+  plugin: entity:block_content
+  bundle: blockquote
+
+migration_dependencies:
+  required: {  }
+  optional: {  }

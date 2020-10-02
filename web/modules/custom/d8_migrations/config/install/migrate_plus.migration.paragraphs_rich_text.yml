@@ -1,0 +1,30 @@
+id: paragraphs_rich_text
+label: Drupal 7 Rich Text Paragraphs
+migration_group: paragraphs_to_block
+
+dependencies: { }
+
+source:
+  plugin: d7_paragraphs_item
+  bundle: rich_text
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: 'rich_text'
+  body:
+    plugin: sub_process
+    source: field_rich_text
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: 'full_html'
+
+destination:
+  plugin: entity:block_content
+  bundle: rich_text
+
+migration_dependencies:
+  required: {  }
+  optional: {  }

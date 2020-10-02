@@ -1,0 +1,34 @@
+uuid: 22c9eb98-3e7e-4df5-bd96-0c3a1e65fb40
+langcode: en
+status: true
+dependencies: {  }
+id: paragraphs_blockquote
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: paragraphs_to_block
+label: 'Drupal 7 Blockquote Paragraphs'
+source:
+  plugin: d7_paragraphs_item
+  bundle: block_quote
+  key: migrate
+process:
+  type:
+    plugin: default_value
+    default_value: blockquote
+  field_author: field_author
+  field_quote:
+    plugin: sub_process
+    source: field_quote
+    process:
+      value: value
+      format:
+        plugin: default_value
+        default_value: full_html
+destination:
+  plugin: 'entity:block_content'
+  bundle: blockquote
+migration_dependencies:
+  required: {  }
+  optional: {  }

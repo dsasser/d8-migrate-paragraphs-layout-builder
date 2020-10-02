@@ -1,0 +1,23 @@
+uuid: 20009ff6-b345-40ba-bf91-f71dc97409a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.rich_text
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.rich_text.body
+field_name: body
+entity_type: block_content
+bundle: rich_text
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

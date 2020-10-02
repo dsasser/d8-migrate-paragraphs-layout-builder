@@ -1,0 +1,31 @@
+uuid: 2fbab73d-2b18-472d-9de9-8535c45aa012
+langcode: en
+status: true
+dependencies: {  }
+id: content
+label: Nodes
+description: 'A container for migrating Node entities'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  process:
+    nid: nid
+    type: type
+    langcode:
+      plugin: static_map
+      bypass: true
+      source: language
+      map:
+        und: en
+    title: title
+    uid: node_uid
+    status: status
+    created: created
+    changed: changed
+    promote: promote
+    sticky: sticky
+    revision_uid: revision_uid
+    revision_log: log
+    revision_timestamp: timestamp
+  destination:
+    plugin: 'entity:node'

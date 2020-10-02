@@ -1,6 +1,8 @@
-# Docksal powered Drupal 8 With Composer Installation
+# Migrating Paragraphs to Layout Builder - An example site
 
-This is a sample Drupal 8 with Composer installation pre-configured for use with Docksal.
+This is a sample Drupal 8 with Composer installation pre-configured for use with Docksal. The intent of this project is to showcase how to migrate paragraphs to Layout Builder.
+
+The migration process plugins are the heart of the process and they reside in web/modules/custom/d8_migrations/src/Plugin/migrate/process
 
 Features:
 
